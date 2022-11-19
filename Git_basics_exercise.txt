@@ -1,0 +1,53 @@
+guswilliams@Guss-MBP Exercises % mkdir learn_git_again
+guswilliams@Guss-MBP Exercises % cd learn_git_again 
+guswilliams@Guss-MBP learn_git_again % touch third.txt
+guswilliams@Guss-MBP learn_git_again % git init 
+Initialized empty Git repository in /Users/guswilliams/Repositories/Exercises/learn_git_again/.git/
+guswilliams@Guss-MBP learn_git_again % git add third.txt 
+guswilliams@Guss-MBP learn_git_again % git commit -m "adding third.txt"
+[main (root-commit) 5ddc2d9] adding third.txt
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 third.txt
+guswilliams@Guss-MBP learn_git_again % git log
+commit 5ddc2d9226976ce7c9f72dddbb5994a7ba69e1f7 (HEAD -> main)
+Author: Gus.williams95@gmail.com <Gus.williams95@gmail.com>
+Date:   Fri Nov 18 18:21:01 2022 -0500
+
+    adding third.txt
+guswilliams@Guss-MBP learn_git_again % touch fourth.txt
+guswilliams@Guss-MBP learn_git_again % git add fourth.txt 
+guswilliams@Guss-MBP learn_git_again % git commit -m "adding fourth.txt"
+[main f480c6d] adding fourth.txt
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 fourth.txt
+guswilliams@Guss-MBP learn_git_again % rm third.txt 
+guswilliams@Guss-MBP learn_git_again % git add .
+guswilliams@Guss-MBP learn_git_again % git commit -m "removing third.txt"
+[main b675f92] removing third.txt
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ delete mode 100644 third.txt
+guswilliams@Guss-MBP learn_git_again % git log
+commit b675f9264407dee2cb7c0177783d62ff39101315 (HEAD -> main)
+Author: Gus.williams95@gmail.com <Gus.williams95@gmail.com>
+Date:   Fri Nov 18 18:23:34 2022 -0500
+
+    removing third.txt
+
+commit f480c6d31df70aadf580e5e3f70ace422bf9ef28
+Author: Gus.williams95@gmail.com <Gus.williams95@gmail.com>
+Date:   Fri Nov 18 18:22:05 2022 -0500
+
+    adding fourth.txt
+
+commit 5ddc2d9226976ce7c9f72dddbb5994a7ba69e1f7
+Author: Gus.williams95@gmail.com <Gus.williams95@gmail.com>
+Date:   Fri Nov 18 18:21:01 2022 -0500
+
+    adding third.txt
+guswilliams@Guss-MBP learn_git_again % 
+guswilliams@Guss-MacBook-Pro Exercises % git config --global core.pager "cat"
+guswilliams@Guss-MacBook-Pro Exercises % git config --global --list
+user.email=Gus.williams95@gmail.com
+user.name=Gus.williams95@gmail.com
+core.pager=cat
+guswilliams@Guss-MacBook-Pro Exercises %
