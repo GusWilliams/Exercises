@@ -1,0 +1,174 @@
+
+
+Part I
+Answer the following questions:
+
+What git command creates a branch?
+
+	git branch -b <name of branch>
+
+What is the difference between a fast-forward and recursive merge?
+
+	fast forward merge you have a straight line of history and with the recursive merge, it is of multiple lines
+
+What git command changes to another branch?
+
+	git checkout <branch name>
+
+What git command deletes a branch?
+
+	git branch -d <branch name>
+
+How do merge conflicts happen?
+
+	When changes are committed to the same file from two different branches.
+
+
+
+
+Part II
+Practice with fast forward and recursive merges! Make a branch and add and commit onto it and merge it back into master.
+
+
+
+
+
+guswilliams@Guss-MacBook-Pro random_colors_copy % ls
+colorStyle.css		randomColors.html	scratchPad.js
+guswilliams@Guss-MacBook-Pro random_colors_copy % git branch
+  conflict
+* main
+guswilliams@Guss-MacBook-Pro random_colors_copy % git checkout conflict
+Switched to branch 'conflict'
+guswilliams@Guss-MacBook-Pro random_colors_copy % git status
+On branch conflict
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   colorStyle.css
+	modified:   scratchPad.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+guswilliams@Guss-MacBook-Pro random_colors_copy % git add .
+guswilliams@Guss-MacBook-Pro random_colors_copy % git commit -m "green colors"
+[conflict a3fb859] green colors
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+guswilliams@Guss-MacBook-Pro random_colors_copy % git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'Git_branching/main'.
+guswilliams@Guss-MacBook-Pro random_colors_copy % git merge conflict
+Updating 6e24e44..a3fb859
+Fast-forward
+ colorStyle.css | 2 +-
+ scratchPad.js  | 4 ++--
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+
+
+
+
+guswilliams@Guss-MacBook-Pro random_colors_copy % git checkout -b dummy
+Switched to a new branch 'dummy'
+guswilliams@Guss-MacBook-Pro random_colors_copy % git status
+On branch dummy
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   scratchPad.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+guswilliams@Guss-MacBook-Pro random_colors_copy % git add .
+guswilliams@Guss-MacBook-Pro random_colors_copy % git commit -m "all colors"
+[dummy e5a7110] all colors
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+guswilliams@Guss-MacBook-Pro random_colors_copy % git checkout main
+Switched to branch 'main'
+Your branch is ahead of 'Git_branching/main' by 1 commit.
+  (use "git push" to publish your local commits)
+guswilliams@Guss-MacBook-Pro random_colors_copy % git status
+On branch main
+Your branch is ahead of 'Git_branching/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   colorStyle.css
+
+no changes added to commit (use "git add" and/or "git commit -a")
+guswilliams@Guss-MacBook-Pro random_colors_copy % git add .
+guswilliams@Guss-MacBook-Pro random_colors_copy % git commit -m "black bg"
+[main af14996] black bg
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+guswilliams@Guss-MacBook-Pro random_colors_copy % git branch
+  conflict
+  dummy
+* main
+guswilliams@Guss-MacBook-Pro random_colors_copy % git merge dummy
+Merge made by the 'ort' strategy.
+ scratchPad.js | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+
+
+
+Try to create your own merge conflict by modifying the same file on two separate commits on two separate branches.
+
+
+
+guswilliams@Guss-MacBook-Pro random_colors_copy % git status
+On branch main
+Your branch is ahead of 'Git_branching/main' by 4 commits.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   colorStyle.css
+
+no changes added to commit (use "git add" and/or "git commit -a")
+guswilliams@Guss-MacBook-Pro random_colors_copy % git add .
+guswilliams@Guss-MacBook-Pro random_colors_copy % git commit -m "change bg Color"
+[main f31ea1c] change bg Color
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+guswilliams@Guss-MacBook-Pro random_colors_copy % git checkout conflict
+Switched to branch 'conflict'
+guswilliams@Guss-MacBook-Pro random_colors_copy % git status
+On branch conflict
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   colorStyle.css
+
+no changes added to commit (use "git add" and/or "git commit -a")
+guswilliams@Guss-MacBook-Pro random_colors_copy % git add .
+guswilliams@Guss-MacBook-Pro random_colors_copy % git commit -m "change bg again"
+[conflict 227d2e9] change bg again
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+guswilliams@Guss-MacBook-Pro random_colors_copy % git checkout main
+Switched to branch 'main'
+Your branch is ahead of 'Git_branching/main' by 5 commits.
+  (use "git push" to publish your local commits)
+guswilliams@Guss-MacBook-Pro random_colors_copy % git merge conflict
+Auto-merging colorStyle.css
+CONFLICT (content): Merge conflict in colorStyle.css
+Automatic merge failed; fix conflicts and then commit the result.
+guswilliams@Guss-MacBook-Pro random_colors_copy % git status
+On branch main
+Your branch is ahead of 'Git_branching/main' by 5 commits.
+  (use "git push" to publish your local commits)
+
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+	both modified:   colorStyle.css
+
+no changes added to commit (use "git add" and/or "git commit -a")
+guswilliams@Guss-MacBook-Pro random_colors_copy % git add colorStyle.css 
+guswilliams@Guss-MacBook-Pro random_colors_copy % git commit -m "fix merge conflict, accepted branch main modifications"
+
+
+
